@@ -1,1 +1,2 @@
 .env
+generator/summarizer/__pycache__
