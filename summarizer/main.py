@@ -26,7 +26,6 @@ def get_summary():
             os.mkdir(outputs_dir)
         # Download the audio using youtube_dlp
         audio_path, thumbnail_url, video_title = download_video_info(youtube_url, raw_audio_dir)
-        # audio_filename = download_audio(youtube_url, raw_audio_dir)
         # Split each audio file
         chunked_audio_files = split_audio_file(audio_path, segment_length, segments_dir)
         # Transcribe each splitted audio file using Whisper
@@ -36,15 +35,15 @@ def get_summary():
         # Put the entire summary into a single entry
         final_summary = '\n'.join(summaries)
         # Return the complete summary in text, the thumbnail's url and the title string
-        return final_summary, thumbnail_url, video_title
+        return transcriptions, final_summary, thumbnail_url, video_title
     # Set parameters
     data = request.get_json()
     youtube_url = data.get('youtube_url')
     outputs_dir = 'outputs/'
     # Call summarize function
-    final_summary, thumbnail_url, video_title = summarize_youtube_video(youtube_url, outputs_dir)
+    transcriptions, final_summary, thumbnail_url, video_title = summarize_youtube_video(youtube_url, outputs_dir)
     # Send json info to front end
-    return jsonify({'summary': final_summary, 'thumbnail_url': thumbnail_url, 'video_title': video_title})
+    return jsonify({'transcriptions': transcriptions, 'summary': final_summary, 'thumbnail_url': thumbnail_url, 'video_title': video_title})
 
 if __name__ == '__main__':
     app.run(debug=True)
