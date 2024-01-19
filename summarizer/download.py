@@ -25,7 +25,7 @@ def download_video_info(video_url, output_directory):
         # Select audio file from folder
         audio_path = find_audio_files(output_directory)[0]
         # Get thumbnail URL
-        thumbnail_url = f"https://img.youtube.com/vi/{info_dict['id']}/maxresdefault.jpg"
+        thumbnail_url = f"https://img.youtube.com/vi/{info_dict['id']}/sddefault.jpg"
         # Get video title
         video_title = info_dict.get('title', '')
 
