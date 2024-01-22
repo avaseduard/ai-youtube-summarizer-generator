@@ -1,4 +1,4 @@
-ChatGPTube - Summarize youtube videos with ChatGPT (in progress...)
+ChatGPTube - Summarize youtube videos with ChatGPT
 
 Need to install:
 - pip install yt-dlp
@@ -9,4 +9,3 @@ Need to install:
 - pip install flask
 
 To do list:
-- remove download files after info has been sent to front end

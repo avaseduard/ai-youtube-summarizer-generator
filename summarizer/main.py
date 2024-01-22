@@ -42,8 +42,12 @@ def get_summary():
     outputs_dir = 'outputs/'
     # Call summarize function
     transcriptions, final_summary, thumbnail_url, video_title = summarize_youtube_video(youtube_url, outputs_dir)
+    # Store the response
+    response = jsonify({'transcriptions': transcriptions, 'summary': final_summary, 'thumbnail_url': thumbnail_url, 'video_title': video_title})
+    # Delete the files and folders
+    shutil.rmtree(outputs_dir)
     # Send json info to front end
-    return jsonify({'transcriptions': transcriptions, 'summary': final_summary, 'thumbnail_url': thumbnail_url, 'video_title': video_title})
+    return response
 
 if __name__ == '__main__':
     app.run(debug=True)
