@@ -28,14 +28,4 @@ def download_video_info(video_url, output_directory):
         thumbnail_url = f"https://img.youtube.com/vi/{info_dict['id']}/sddefault.jpg"
         # Get video title
         video_title = info_dict.get('title', '')
-
     return audio_path, thumbnail_url, video_title
-
-# Test run:
-# video_url = "https://www.youtube.com/watch?v=stRYkYM9LxQ"
-# output_directory = "test/"
-# audio_path, thumbnail_url, video_title = download_video_info(video_url, output_directory)
-
-# print("Audio Path -->", audio_path)
-# print("Thumbnail Url -->", thumbnail_url)
-# print("Video Title -->", video_title)
